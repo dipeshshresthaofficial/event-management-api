@@ -25,7 +25,9 @@ public class Venue extends AbstractEntity {
 	@Column(nullable = false)
 	private Long postalCode;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "venue", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "venue")
+	// Business Logic: If one venue is deleted then its corresponding event shouldn't be deleted, either it should be assigned 
+	// to another venue or there should be a provison for canceled or online.
 	private Set<Event> events;
 
 	public String getName() {
