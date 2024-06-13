@@ -29,7 +29,7 @@ public class Event extends AbstractEntity {
 	@JoinColumn(name="venue_id",nullable = false)
 	private Venue venue;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "event", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "event")
 	private Set<Participant> participants;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
